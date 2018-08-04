@@ -21,7 +21,7 @@ mv "gdb-$VERSION" "gdb"
 
 set +x
 # move to ctftools virtual env
-source ctf-tools-venv-activate
+source ../bin/ctf-tools-venv-activate
 set -x
 
 PREFIX=$(pwd)
