@@ -4,9 +4,10 @@ from ubuntu:xenial
 COPY .docker/apt-get-install /usr/local/bin/apt-get-install
 RUN chmod +x /usr/local/bin/apt-get-install
 
-RUN apt-get-install build-essential libtool g++ gcc \
+RUN apt-get-install build-essential libtool libtool-bin g++ gcc \
     texinfo curl wget automake autoconf python python-dev git subversion \
-    unzip virtualenvwrapper sudo  git virtualenvwrapper
+    unzip virtualenvwrapper sudo  git virtualenvwrapper vim bison
+RUN apt-get-install glib2.0
 
 RUN useradd -m ctf
 RUN echo "ctf ALL=NOPASSWD: ALL" > /etc/sudoers.d/ctf
@@ -33,6 +34,31 @@ RUN bin/manage-tools -s setup
 RUN bin/ctf-tools-pip install appdirs
 #RUN echo "workon ctftools" >> /home/ctf/.bashrc
 RUN echo 'source $(which ctf-tools-venv-activate)' >> /home/ctf/.bashrc
+RUN bin/manage-tools install afl
+USER root
+RUN apt-get-install openjdk-8-jdk openjdk-8-jre
+USER ctf
+RUN bin/manage-tools install android-sdk
+RUN bin/manage-tools install angr
+RUN bin/manage-tools install apktool
+RUN bin/manage-tools install binwalk
+RUN bin/manage-tools install checksec
+RUN bin/manage-tools install hashpump
+RUN bin/manage-tools install honggfuzz
+RUN bin/manage-tools install gdb
+RUN bin/manage-tools install libc-database
+RUN bin/manage-tools install msieve
+RUN bin/manage-tools install one_gadget
+RUN bin/manage-tools install peda
+RUN bin/manage-tools install preeny
+RUN bin/manage-tools install pwntools
+RUN bin/manage-tools install python-pin
+RUN bin/manage-tools install rp++
+RUN bin/manage-tools install seccomp-tool
+RUN bin/manage-tools install unicorn
+RUN bin/manage-tools install z3
+#RUN bin/manage-tools install qira
+#RUN bin/manage-tools install radare2
 
 WORKDIR /home/ctf
 CMD bash -i
