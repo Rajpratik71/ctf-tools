@@ -46,18 +46,27 @@ RUN bin/manage-tools install angr
 RUN bin/manage-tools install apktool
 RUN bin/manage-tools install binwalk
 RUN bin/manage-tools install checksec
+USER root
+RUN apt-get-install libunwind8-dev binutils-dev
+USER ctf
 RUN bin/manage-tools install hashpump
 RUN bin/manage-tools install honggfuzz
+USER root
+RUN apt-get-install guile-2.0-dev
+USER ctf
 RUN bin/manage-tools install gdb
-RUN bin/manage-tools install libc-database
+#RUN bin/manage-tools install libc-database
 RUN bin/manage-tools install msieve
+USER root
+RUN apt-get-install ruby
+USER ctf
 RUN bin/manage-tools install one_gadget
 RUN bin/manage-tools install peda
 RUN bin/manage-tools install preeny
 RUN bin/manage-tools install pwntools
-RUN bin/manage-tools install python-pin
+#RUN bin/manage-tools install python-pin
 RUN bin/manage-tools install rp++
-RUN bin/manage-tools install seccomp-tool
+RUN bin/manage-tools install seccomp-tools
 RUN bin/manage-tools install unicorn
 RUN bin/manage-tools install z3
 #RUN bin/manage-tools install qira
