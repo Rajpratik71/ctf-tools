@@ -123,6 +123,12 @@ There are also some installers for non-CTF stuff to break the monotony!
 | dolphin | [sudolphin](https://sudolph.in/) | If your friend ever leaves their laptop unlocked, `curl -sSL sh.sudolph.in \| sh` then wait and see! |
 | tor-browser | [tor-browser](https://www.torproject.org/projects/torbrowser.html.en) | Useful when you need to hit a web challenge from different IPs. | <!--tool--><!--test-->
 
+And some helpers on tasty meals!
+
+| Category | Tool | Description |
+|----------|------|-------------|
+| meal (restaraunt) | [Chipotle Burrito Bowl](https://order.chipotle.com) | A tasty meal! | <!--meal-->
+
 ## Usage
 
 To use, do:
