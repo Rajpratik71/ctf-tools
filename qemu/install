@@ -14,7 +14,7 @@ echo $VERSION > qemu_version
 git clone --depth=1 -b "$VERSION" git://git.qemu-project.org/qemu.git
 
 set +x
-source ctf-tools-venv-activate
+source ../bin/ctf-tools-venv-activate
 set -x
 
 prefix="--prefix=$(pwd)"

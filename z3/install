@@ -5,7 +5,8 @@ cd z3
 
 # move to ctftools virtual env
 set +e
-source ${VIRTUALENVWRAPPER_SCRIPT}
+#source ${VIRTUALENVWRAPPER_SCRIPT}
+source ../../bin/ctf-tools-venv-activate
 workon ctftools
 set -e
 
